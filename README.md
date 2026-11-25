@@ -63,7 +63,7 @@ Fernet provides:
 
 The same secret key is used for both encryption and decryption.
 
-### `core/crypto.py`
+### `app/crypto.py`
 
 The cryptography module separates encryption logic from the API views.
 
@@ -131,7 +131,7 @@ burnerpass/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-└── core/
+└── app/
     ├── crypto.py
     ├── models.py
     ├── serializers.py
@@ -324,4 +324,3 @@ The command can also be scheduled using cron or another task scheduler.
 - Improve secret expiration and cleanup scheduling.
 - Add production deployment configuration.
 - Complete Flutter deep-link handling and secret reveal flow.
-

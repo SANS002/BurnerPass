@@ -21,7 +21,7 @@ class CreateSecretAPIView(APIView):
         if not serializer.is_valid():
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
-        raw_text = serializer.validated_data['secret_txt']
+        raw_text = serializer.validated_data['secret_text']
         ttl_hours = serializer.validated_data['ttl_hours']
 
         encrypted_payload = encrypt_secret(raw_text)
@@ -29,7 +29,7 @@ class CreateSecretAPIView(APIView):
 
         secret = EphemeralSecret.objects.create(
             ciphertext = encrypted_payload,
-            expiration = expiration
+            expires_at = expiration
         )
 
         burn_path = reverse('api-secret-burn', kwargs = {'secret_id': secret.id})
