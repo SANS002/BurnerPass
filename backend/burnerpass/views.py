@@ -106,7 +106,7 @@ class BurnAndRevealAPIView(APIView):
             secret.save(update_fields = ['is_burned', 'ciphertext'])
 
             return Response({
-                'secret_txt': plaintext_payload,
+                'secret_text': plaintext_payload,
                 'details': 'secret burned and revealed'
             },
             status = status.HTTP_200_OK
